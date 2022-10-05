@@ -5,6 +5,7 @@ import com.academy.model.entity.User;
 import com.academy.model.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,13 +32,15 @@ public class UserRepositoryImplTest {
         user.setLogin(login);
         user.setFirstName("Yury");
         user.setSecondName("Hrytsuk");
+        user.setBoardgames(new ArrayList<>());
         userRepository.save(user);
 
         List<User> list = userRepository.findAll();
         User lastUser = list.get(list.size() - 1);
 
-        assertEquals(user, lastUser);
+        assertEquals(user.toString(), lastUser.toString());
     }
+
 
     @Test
     void testSave2() {
@@ -52,13 +55,15 @@ public class UserRepositoryImplTest {
         user.setLogin(login);
         user.setFirstName("Dmitry");
         user.setSecondName("Lje");
+        user.setBoardgames(new ArrayList<>());
         userRepository.save(user);
 
         List<User> list = userRepository.findAll();
         User lastUser = list.get(list.size() - 1);
 
-        assertEquals(user, lastUser);
+        assertEquals(user.toString(), lastUser.toString());
     }
+
 
     @Test
     void testSave3() {
@@ -73,13 +78,12 @@ public class UserRepositoryImplTest {
         user.setLogin(login);
         user.setFirstName("Ihar");
         user.setSecondName("Pumpkin");
+        user.setBoardgames(new ArrayList<>());
         userRepository.save(user);
 
         List<User> list = userRepository.findAll();
         User lastUser = list.get(list.size() - 1);
 
-        assertEquals(user, lastUser);
+        assertEquals(user.toString(), lastUser.toString());
     }
-
-
 }

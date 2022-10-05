@@ -10,7 +10,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginRepositoryImplTest {
-
     @Test
     void testConstructor() {
         LoginRepository repository = new LoginRepositoryImpl();
@@ -34,5 +33,4 @@ public class LoginRepositoryImplTest {
 
         assertEquals(login, lastLogin);
     }
-
 }

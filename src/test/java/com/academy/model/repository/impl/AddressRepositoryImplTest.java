@@ -9,14 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class AddressRepositoryImplTest {
-
     @Test
     void testConstructor() {
         AddressRepository repository = new AddressRepositoryImpl();
         Class<Address> type = repository.getType();
-        assertEquals(type,Address.class);
+        assertEquals(type, Address.class);
     }
-
-
-
 }

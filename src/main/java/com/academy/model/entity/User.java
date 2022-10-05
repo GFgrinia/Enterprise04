@@ -3,6 +3,7 @@ package com.academy.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -18,5 +19,16 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "login_id")
     private Login login;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+            // table in DB describes ManyToMany links
+            name = "user_boardgame",
+            // primary key for mapping
+            joinColumns = {@JoinColumn(name = "user_id")},
+            // add this to join
+            inverseJoinColumns = {@JoinColumn(name = "boardgame_id")}
+    )
+    private List<Boardgame> boardgames;
 
 }

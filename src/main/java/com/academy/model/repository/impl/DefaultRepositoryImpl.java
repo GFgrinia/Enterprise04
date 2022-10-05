@@ -13,7 +13,7 @@ public class DefaultRepositoryImpl<T> implements DefaultRepository<T> {
     private final Class<T> type;
 
     public DefaultRepositoryImpl(Class<T> type) {
-        this.type =  type;
+        this.type = type;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class DefaultRepositoryImpl<T> implements DefaultRepository<T> {
     @Override
     public List<T> findAll() {
         Session session = DataSource.getInstance().getSession();
-        Query query =  session.createQuery("from " + type.getSimpleName());
+        Query query = session.createQuery("from " + type.getSimpleName());
         return query.getResultList();
     }
 

@@ -15,7 +15,7 @@ public class BoardgameRepositoryImplTest {
     void testConstructor() {
         BoardgameRepository repository = new BoardgameRepositoryImpl();
         Class<Boardgame> type = repository.getType();
-        assertEquals(type,Boardgame.class);
+        assertEquals(type, Boardgame.class);
     }
 
 
@@ -39,11 +39,9 @@ public class BoardgameRepositoryImplTest {
         repository.save(boardgame);
 
 
-
         List<Boardgame> list = repository.findAll();
-        Boardgame lastBoardgame = list.get(list.size()-1);
+        Boardgame lastBoardgame = list.get(list.size() - 1);
 
         assertEquals(boardgame, lastBoardgame);
     }
-
 }

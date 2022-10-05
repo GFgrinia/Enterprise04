@@ -15,12 +15,12 @@ public class DefaultRepositoryImplTest {
     void testConstructor() {
         DefaultRepository<Address> repository = new DefaultRepositoryImpl<>(Address.class);
         Class<Address> type = repository.getType();
-        assertEquals(type,Address.class);
+        assertEquals(type, Address.class);
     }
 
     @Test
     void testSave() {
-        DefaultRepository<Address> repository =  new DefaultRepositoryImpl<>(Address.class);
+        DefaultRepository<Address> repository = new DefaultRepositoryImpl<>(Address.class);
         Address address = Address.builder()
                 .country("Belarus")
                 .city("Brest")
@@ -30,7 +30,7 @@ public class DefaultRepositoryImplTest {
         repository.save(address);
 
         List<Address> list = repository.findAll();
-        Address lastAddress = list.get(list.size()-1);
+        Address lastAddress = list.get(list.size() - 1);
 
         assertEquals(address, lastAddress);
     }
@@ -38,20 +38,20 @@ public class DefaultRepositoryImplTest {
 
     @Test
     void testFindById() {
-        DefaultRepository<Address> repository =  new DefaultRepositoryImpl<>(Address.class);
+        DefaultRepository<Address> repository = new DefaultRepositoryImpl<>(Address.class);
 
         List<Address> list = repository.findAll();
         Address address = list.get(0);
         Integer id = address.getId();
 
-        Address findAddress =  repository.findById(id);
+        Address findAddress = repository.findById(id);
         assertEquals(address, findAddress);
     }
 
 
     @Test
     void deleteTest() {
-        DefaultRepository<Address> repository =  new DefaultRepositoryImpl<>(Address.class);
+        DefaultRepository<Address> repository = new DefaultRepositoryImpl<>(Address.class);
 
         Address address = Address.builder()
                 .country("Delete")
@@ -59,7 +59,7 @@ public class DefaultRepositoryImplTest {
         repository.save(address);
 
         List<Address> list = repository.findAll();
-        Address lastAddress = list.get(list.size()-1);
+        Address lastAddress = list.get(list.size() - 1);
         Integer id = lastAddress.getId();
 
         repository.delete(lastAddress);
@@ -69,10 +69,9 @@ public class DefaultRepositoryImplTest {
     }
 
 
-
     @Test
     void testFindAll() {
-        DefaultRepository<Address> repository =  new DefaultRepositoryImpl<>(Address.class);
+        DefaultRepository<Address> repository = new DefaultRepositoryImpl<>(Address.class);
 
         int sizeBefore = repository.findAll().size();
 
