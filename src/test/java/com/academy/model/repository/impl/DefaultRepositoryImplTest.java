@@ -1,7 +1,6 @@
 package com.academy.model.repository.impl;
 
 import com.academy.model.entity.Address;
-import com.academy.model.repository.AddressRepository;
 import com.academy.model.repository.DefaultRepository;
 import org.junit.jupiter.api.Test;
 
@@ -27,22 +26,6 @@ public class DefaultRepositoryImplTest {
                 .city("Brest")
                 .street("South")
                 .building(333)
-                .build();
-        repository.save(address);
-
-        address = Address.builder()
-                .country("USA")
-                .city("New York")
-                .street("5th Avenue")
-                .building(15)
-                .build();
-        repository.save(address);
-
-        address = Address.builder()
-                .country("China")
-                .city("Beijing")
-                .street("street")
-                .building(1208)
                 .build();
         repository.save(address);
 

@@ -10,21 +10,14 @@ import com.academy.model.repository.impl.AddressRepositoryImpl;
 import com.academy.model.repository.impl.LoginRepositoryImpl;
 import com.academy.model.repository.impl.UserRepositoryImpl;
 
+import java.sql.Timestamp;
+
 public class Main {
     public static void main(String[] args) {
-        UserRepository userRepository = new UserRepositoryImpl();
+        Timestamp timestamp = Timestamp.valueOf("2022-11-25 10:30:22");
+        Timestamp timestamp2 = Timestamp.valueOf("2022-11-22 10:30:22");
 
-        User user = new User();
-        Login login = new Login();
-
-        login.setUsername("Yury111");
-        login.setPassword("Password1");
-
-
-        user.setLogin(login);
-        user.setFirstName("Yury");
-        user.setSecondName("Hrytsuk");
-        userRepository.save(user);
+        System.out.println(timestamp.after(timestamp2));
 
 
     }
